@@ -1,0 +1,319 @@
+/* ==========================================================================
+   Base & Variables (Les couleurs sont partiellement gérées via le HTML)
+   ========================================================================== */
+   body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-primary); /* #1a1a1a par défaut */
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Couleurs utilitaires (Fallbacks et nuances) */
+.bg-primary-dark { background-color: var(--color-primary); }
+.bg-secondary-dark { background-color: var(--color-secondary); }
+.text-accent { color: var(--color-accent) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.text-secondary-light { color: #a0a0a0; }
+.border-secondary { border-color: #333 !important; }
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.custom-navbar {
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    padding: 1.5rem 0;
+}
+
+.custom-navbar.scrolled {
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.custom-navbar .navbar-brand .brand-text {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.custom-navbar .nav-link {
+    color: #e0e0e0;
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.custom-navbar .nav-link:hover {
+    color: var(--color-accent);
+}
+
+.custom-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+.custom-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ==========================================================================
+   Boutons
+   ========================================================================== */
+.custom-btn {
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.custom-btn-accent {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(217, 32, 39, 0.4); /* Effet lueur braise */
+}
+
+.custom-btn-accent:hover {
+    background-color: #fff;
+    color: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(217, 32, 39, 0.6);
+}
+
+.btn-outline-accent {
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+}
+
+/* ==========================================================================
+   Menu Cards (Cartes des plats)
+   ========================================================================== */
+.menu-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card-img-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-card:hover .card-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.price-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(26, 26, 26, 0.9);
+    padding: 8px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Formulaire de commande
+   ========================================================================== */
+.form-card {
+    border-radius: 20px;
+}
+
+.custom-input {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid #333 !important;
+    color: #fff !important;
+    border-radius: 10px;
+    padding: 12px 15px;
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(217, 32, 39, 0.25) !important;
+    border-color: var(--color-accent) !important;
+}
+
+.custom-input::placeholder {
+    color: #666;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes kenburns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes pulse-accent {
+    0% { box-shadow: 0 0 0 0 rgba(217, 32, 39, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(217, 32, 39, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(217, 32, 39, 0); }
+}
+
+/* Application des animations */
+.navbar-brand img {
+    animation: float 4s ease-in-out infinite;
+}
+
+.hero-section {
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #111; /* Fond de secours sombre */
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1 !important;
+    animation: kenburns 20s linear infinite alternate;
+}
+
+/* On s'assure que le contenu est BIEN au-dessus de l'animation */
+.hero-section .container {
+    position: relative;
+    z-index: 10 !important;
+}
+
+/* Bouton Panier Rouge */
+.btn-commander-panier {
+    background-color: #d92027 !important; /* Rouge pro */
+    color: white !important;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(217, 32, 39, 0.4);
+}
+
+.btn-commander-panier:hover {
+    transform: translateY(-3px);
+    background-color: #b01a1f !important;
+    box-shadow: 0 6px 20px rgba(217, 32, 39, 0.6);
+}
+
+/* ==========================================================================
+   Responsive Design (Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .display-3 { font-size: 2rem !important; }
+    .display-5 { font-size: 1.8rem !important; }
+    .hero-section { padding-top: 80px; }
+    .custom-navbar { background-color: rgba(0,0,0,0.95) !important; padding: 10px 0 !important; }
+    .menu-card { margin-bottom: 20px; }
+    .card-img-wrapper { height: 180px; }
+    .table-responsive { font-size: 0.8rem; }
+    .brand-text { font-size: 1rem; }
+    .navbar-brand img { width: 40px; height: 40px; }
+    .container { padding-left: 20px; padding-right: 20px; }
+}
+
+.custom-btn-accent {
+    animation: pulse-accent 2s infinite;
+}
+
+.menu-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--color-accent);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.custom-footer {
+    background-color: #111;
+}
+
+.footer-link {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s;
+    line-height: 2;
+}
+
+.footer-link:hover {
+    color: var(--color-accent);
+}
